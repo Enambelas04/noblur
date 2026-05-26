@@ -1,6 +1,14 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
+use client'
+
+import { useState, useRef, useCallback } from 'react'
+import { patchMP4 } from '@/lib/patcher'
+
+// ── tiny helpers ──────────────────────────────────────────────────────
+const fmt = (bytes) => (bytes / 1024 / 1024).toFixed(2) + ' MB'
+const cls  = (...args) => args.filter(Boolean).join(' ')
+
+// ── Toggle component ──────────────────────────────────────────────────
+function Toggle({ checked, onChange }) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NoBlur — TikTok Video Suite</title>
