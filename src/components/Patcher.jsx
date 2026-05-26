@@ -1,5 +1,4 @@
-Meet 2 : 28 Feb 2026
-'use client'
+
 
 import { useState, useRef, useCallback } from 'react'
 import { patchMP4 } from '@/lib/patcher'
