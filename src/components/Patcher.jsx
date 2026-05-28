@@ -499,7 +499,7 @@ export default function Patcher() {
           <span className="font-mono text-[10px] text-[#555] px-2 py-0.5 border border-[rgba(255,255,255,0.1)] rounded">v2.0</span>
         </div>
         <h1 className="font-syne font-extrabold text-5xl leading-[1.05] tracking-[-2px] mb-3">
-          Video pipeline.<br /><span className="text-[#e8ff47]">Satu klik.</span>
+          Double Layered Video.<br /><span className="text-[#e8ff47]">Satu klik.</span>
         </h1>
         <p className="font-mono font-light text-[13px] text-[#555] leading-relaxed max-w-md mb-4">
           Pilih kombinasi fitur yang kamu mau — patch, convert, dan interpolasi bisa dijalankan sekaligus dalam satu pipeline.
