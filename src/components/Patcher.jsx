@@ -692,7 +692,7 @@ export default function Patcher() {
       <div className="mt-10 pt-5 border-t border-[rgba(255,255,255,0.07)] flex justify-between flex-wrap gap-2 items-center">
         <div className="flex items-center gap-2">
           <span className="font-mono text-[11px] text-[#555]">Created by</span>
-          <a href="https://www.instagram.com/muhamadfildza" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.instagram.com/mfildza_lm?igsh=aHZvb2w5MmVpaWg3" target="_blank" rel="noopener noreferrer"
             className="font-mono text-[11px] text-[#e8ff47] hover:text-[#f0ff6a] transition-colors flex items-center gap-1.5">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
