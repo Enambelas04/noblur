@@ -499,7 +499,7 @@ export default function Patcher() {
           <span className="font-mono text-[10px] text-[#555] px-2 py-0.5 border border-[rgba(255,255,255,0.1)] rounded">v2.0</span>
         </div>
         <h1 className="font-syne font-extrabold text-5xl leading-[1.05] tracking-[-2px] mb-3">
-          Double Layered Video.<br /><span className="text-[#e8ff47]">Satu klik.</span>
+          Video pipeline.<br /><span className="text-[#e8ff47]">Satu klik.</span>
         </h1>
         <p className="font-mono font-light text-[13px] text-[#555] leading-relaxed max-w-md mb-4">
           Pilih kombinasi fitur yang kamu mau — patch, convert, dan interpolasi bisa dijalankan sekaligus dalam satu pipeline.
@@ -617,43 +617,27 @@ export default function Patcher() {
       {results && (
         <div className="bg-[rgba(79,255,176,0.04)] border border-[rgba(79,255,176,0.2)] rounded-xl p-4 mb-4">
           <p className="font-syne font-bold text-[14px] text-[#4fffb0] mb-3">✓ Pipeline selesai</p>
-          <div className="flex flex-col gap-2">
-            {results.patch && (
-              <div className="bg-[#1a1a1a] rounded-xl p-3">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-mono text-[11px] text-[#e8ff47]">🔧 Patch</span>
-                  <span className="font-mono text-[10px] text-[#555]">{results.patch.size} · {results.patch.mods} mod</span>
-                </div>
-                <button onClick={()=>download(results.patch)}
-                  className="w-full py-2 border border-[rgba(232,255,71,0.3)] text-[#e8ff47] rounded-lg font-mono text-[11px] hover:bg-[rgba(232,255,71,0.05)] transition-colors">
-                  ↓ Download hasil patch
-                </button>
+
+          {/* Summary steps yang dijalankan */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {results.patch   && <div className="flex items-center gap-1.5 bg-[#1a1a1a] rounded-lg px-3 py-1.5"><span className="text-[#e8ff47] text-[11px]">🔧</span><span className="font-mono text-[10px] text-[#555]">Patch · {results.patch.mods} mod</span></div>}
+            {results.convert && <div className="flex items-center gap-1.5 bg-[#1a1a1a] rounded-lg px-3 py-1.5"><span className="text-[#7eb8ff] text-[11px]">⚡</span><span className="font-mono text-[10px] text-[#555]">Convert · {results.convert.res} · {results.convert.fps}fps</span></div>}
+            {results.interp  && <div className="flex items-center gap-1.5 bg-[#1a1a1a] rounded-lg px-3 py-1.5"><span className="text-[#4fffb0] text-[11px]">🎞️</span><span className="font-mono text-[10px] text-[#555]">Interp · {results.interp.fps}fps · {results.interp.mode}</span></div>}
+          </div>
+
+          {/* Satu tombol download — file final hasil semua step */}
+          <div className="bg-[#1a1a1a] rounded-xl p-3">
+            <div className="flex items-center justify-between mb-3">
+              <div>
+                <p className="font-syne font-bold text-[13px] text-[#f0f0f0]">File hasil pipeline</p>
+                <p className="font-mono text-[10px] text-[#555] mt-0.5">{results.final?.name}</p>
               </div>
-            )}
-            {results.convert && (
-              <div className="bg-[#1a1a1a] rounded-xl p-3">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-mono text-[11px] text-[#7eb8ff]">⚡ Convert</span>
-                  <span className="font-mono text-[10px] text-[#555]">{results.convert.size} · {results.convert.res} · {results.convert.fps}fps</span>
-                </div>
-                <button onClick={()=>download(results.convert)}
-                  className="w-full py-2 border border-[rgba(126,184,255,0.3)] text-[#7eb8ff] rounded-lg font-mono text-[11px] hover:bg-[rgba(126,184,255,0.05)] transition-colors">
-                  ↓ Download hasil convert
-                </button>
-              </div>
-            )}
-            {results.interp && (
-              <div className="bg-[#1a1a1a] rounded-xl p-3">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-mono text-[11px] text-[#4fffb0]">🎞️ Interpolasi</span>
-                  <span className="font-mono text-[10px] text-[#555]">{results.interp.size} · {results.interp.fps}fps · {results.interp.mode}</span>
-                </div>
-                <button onClick={()=>download(results.interp)}
-                  className="w-full py-2 border border-[rgba(79,255,176,0.3)] text-[#4fffb0] rounded-lg font-mono text-[11px] hover:bg-[rgba(79,255,176,0.05)] transition-colors">
-                  ↓ Download hasil interpolasi
-                </button>
-              </div>
-            )}
+              <span className="font-mono text-[11px] text-[#4fffb0]">{results.final?.size}</span>
+            </div>
+            <button onClick={()=>download(results.final)}
+              className="w-full py-2.5 border-[1.5px] border-[#4fffb0] text-[#4fffb0] rounded-xl font-syne font-bold text-[13px] flex items-center justify-center gap-2 hover:bg-[rgba(79,255,176,0.08)] transition-colors">
+              ↓ Download video final
+            </button>
           </div>
         </div>
       )}
@@ -692,7 +676,7 @@ export default function Patcher() {
       <div className="mt-10 pt-5 border-t border-[rgba(255,255,255,0.07)] flex justify-between flex-wrap gap-2 items-center">
         <div className="flex items-center gap-2">
           <span className="font-mono text-[11px] text-[#555]">Created by</span>
-          <a href="https://www.instagram.com/mfildza_lm?igsh=aHZvb2w5MmVpaWg3" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.instagram.com/muhamadfildza" target="_blank" rel="noopener noreferrer"
             className="font-mono text-[11px] text-[#e8ff47] hover:text-[#f0ff6a] transition-colors flex items-center gap-1.5">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
