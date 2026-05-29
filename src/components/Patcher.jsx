@@ -499,7 +499,7 @@ export default function Patcher() {
           <span className="font-mono text-[10px] text-[#555] px-2 py-0.5 border border-[rgba(255,255,255,0.1)] rounded">v2.0</span>
         </div>
         <h1 className="font-syne font-extrabold text-5xl leading-[1.05] tracking-[-2px] mb-3">
-          Video pipeline.<br /><span className="text-[#e8ff47]">Satu klik.</span>
+          Double Layered Video.<br /><span className="text-[#e8ff47]">Satu klik.</span>
         </h1>
         <p className="font-mono font-light text-[13px] text-[#555] leading-relaxed max-w-md mb-4">
           Pilih kombinasi fitur yang kamu mau — patch, convert, dan interpolasi bisa dijalankan sekaligus dalam satu pipeline.
@@ -676,7 +676,7 @@ export default function Patcher() {
       <div className="mt-10 pt-5 border-t border-[rgba(255,255,255,0.07)] flex justify-between flex-wrap gap-2 items-center">
         <div className="flex items-center gap-2">
           <span className="font-mono text-[11px] text-[#555]">Created by</span>
-          <a href="https://www.instagram.com/muhamadfildza" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.instagram.com/mfildza_lm" target="_blank" rel="noopener noreferrer"
             className="font-mono text-[11px] text-[#e8ff47] hover:text-[#f0ff6a] transition-colors flex items-center gap-1.5">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
